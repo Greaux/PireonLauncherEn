@@ -1,0 +1,15 @@
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Debug\AuthLib.dll
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Debug\AuthLib.pdb
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\obj\Debug\AuthLib.csproj.CopyComplete
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\obj\Debug\AuthLib.dll
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\obj\Debug\AuthLib.pdb
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\bin\Debug\AuthLib.dll
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\bin\Debug\AuthLib.pdb
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\obj\Debug\AuthLib.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\obj\Debug\AuthLib.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\obj\Debug\AuthLib.dll
+C:\Users\User\Documents\GitHub\PireonLauncher\AuthLib\obj\Debug\AuthLib.pdb

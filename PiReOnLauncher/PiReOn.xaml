@@ -1,0 +1,76 @@
+﻿<Window x:Class="PiReOnLauncher.PiReOn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PiReOnLauncher"
+        xmlns:news="clr-namespace:PiReOnLauncher.NewsBlock"
+        mc:Ignorable="d"
+        Title="PiReOn Launcher"
+        Height="450"
+        Width="860"
+        Style="{StaticResource PireonWindow}"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="76*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Margin="115,50,0,0" BorderBrush="{StaticResource LauncherBorder}" BorderThickness="1" CornerRadius="5" Grid.RowSpan="2" Grid.ColumnSpan="2" MouseDown="Border_MouseDown">
+            <Grid>
+                <Image x:Name="GifBG" Stretch="Fill" RenderOptions.EdgeMode="Aliased"/>
+                <Rectangle Fill="#242424" Opacity="0.3"></Rectangle>
+                <Image x:Name="Character" Visibility="Hidden" Source="Content/a.png" Stretch="UniformToFill" Margin="-120,-29,453,0" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Unspecified"></Image>
+                <Border Grid.Row="0" BorderThickness="1 0 1 1" BorderBrush="{StaticResource LauncherBorder}" CornerRadius="0 0 5 5" Background="#D40c0b0b" VerticalAlignment="Bottom" Height="65" Margin="-1,0,-1,-1">
+                    <Button HorizontalAlignment="Left" Margin="15 0 0 0" Style="{StaticResource SettingButton}" x:Name="Settings" Click="Settings_Click"/>
+                </Border>
+                <Image x:Name="VisitSite" Source="Content/www.png" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20" MouseLeftButtonDown="VisitSite_MouseLeftButtonDown"/>
+                <Image x:Name="VisitVK" Source="Content/vk.png" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 50 00 20" MouseLeftButtonDown="VisitVK_MouseLeftButtonDown"/>
+                <Image x:Name="VisitFB" Source="Content/fb.png" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 00 20" MouseLeftButtonDown="VisitFB_MouseLeftButtonDown"/>
+                <TextBlock Foreground="#FFFFFF" FontFamily="{DynamicResource MonstReg}" FontSize="16" HorizontalAlignment="Right" Margin="0, 15,280,0">
+                    <Run Text="PiReOn" Foreground="{StaticResource PireonForeground}"/>
+                    <Run Text="Launcher" Foreground="#FFFFFF"/>
+                </TextBlock>
+                <StackPanel HorizontalAlignment="Right" Margin="0 0 0 0">
+                    <ScrollViewer Height="Auto" Margin="0 30 0 0" MaxHeight="300">
+                        <StackPanel VerticalAlignment="Top" x:Name="News" Orientation="Vertical">
+                            
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+                <Button x:Name="DownloadBtn"
+                        Content="Скачать игру"
+                        Style="{StaticResource PireonButton}"
+                        local:PireonClass.FirstColor="#751c32"
+                        local:PireonClass.SecondColor="#bf012b"
+                        local:PireonClass.FirstColorBrush="#A62847"
+                        local:PireonClass.SecondColorBrush="#EA0B43"
+                        BorderBrush="#a8072d" Height="30"
+                        Width="140" VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Margin="18 20 20 18" Click="DownloadBtn_Click"/>
+                <ProgressBar x:Name="Pbar" Value="0" Style="{StaticResource ABar}" Height="4" Width="500" VerticalAlignment="Bottom" Margin="0 0 100 30"/>
+                <TextBlock x:Name="VersionBlock" Style="{StaticResource PireonText}" Opacity=".5" FontSize="9" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 170 17">
+                    <Run x:Name="LVersion" Text="Версия игры: 1.0" Foreground="#FFFFFF"/>
+                    <Run x:Name="AVersion" Text=" Актуальная версия: 1.2"/>
+                </TextBlock>
+                <TextBlock x:Name="DStatus" Text="" Style="{StaticResource PireonText}" FontSize="10" Foreground="#6D6D6D" Width="Auto" VerticalAlignment="Bottom" Margin="72 0 340 15"/>
+                <Border x:Name="Loading" Visibility="Visible" Background="#1D1D1D">
+                    <Grid>
+                        <TextBlock x:Name="LStatus" Text="Loading Laucher..." FontSize="26" Foreground="#D1D1D1" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource PireonTextBlicking}"/>
+                        <TextBlock Text="Please Wait..." FontSize="13" Foreground="#929292" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource PireonText}" Margin="0 50 10 0 "/>
+                    </Grid>
+                </Border>
+                <Image Style="{StaticResource Cross}" MouseDown="Image_MouseDown"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,7 @@
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Release\AuthLib.dll
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Release\AuthLib.pdb
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Release\Newtonsoft.Json.dll
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\bin\Release\Newtonsoft.Json.xml
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\obj\Release\AuthLib.csproj.CopyComplete
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\obj\Release\AuthLib.dll
+C:\Users\ctor\source\repos\PiReOnLauncher\AuthLib\obj\Release\AuthLib.pdb
