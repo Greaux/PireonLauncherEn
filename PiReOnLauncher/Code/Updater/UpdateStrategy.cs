@@ -1,4 +1,4 @@
-﻿using FluentFTP;
+using FluentFTP;
 using Ionic.Zip;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace PiReOnLauncher.Code.Updater
         public void Execute() {
             if (!LUtils.InternetConnectionToPireon())
             {
-                upd.LAUNCHER.NotifyWindow("Ошибка!", "Отсутствует соединение с Pireon.ru!");
+                upd.LAUNCHER.NotifyWindow("Error!", "No connection with Pireon.pro!");
                 upd.LAUNCHER.EnableButton(true);
                 return;
             }
@@ -49,7 +49,7 @@ namespace PiReOnLauncher.Code.Updater
         public DownloadClient(Updater upd) : base(upd){}
         Action<FtpProgress> progress = new Action<FtpProgress>(x =>
         {
-            UPDATER.LAUNCHER.UpdateDownloadingStatus($"Скачивание клиента... ({x.TransferSpeedToString()})");
+            UPDATER.LAUNCHER.UpdateDownloadingStatus($"Downloading client... ({x.TransferSpeedToString()})");
             UPDATER.ProgressBarChangeValue(x.Progress);
         });
         public override void Process() 
@@ -59,7 +59,7 @@ namespace PiReOnLauncher.Code.Updater
                 long ClientSize = UPDATER.LAUNCHER.FController.FTP.GetFileSize("/client.zip");
                 if (!HasSpace(ClientSize))
                 {
-                    UPDATER.LAUNCHER.NotifyWindow("Ошибка", $"Не хватает места на диске '{LUtils.SystemDriver()}'");
+                    UPDATER.LAUNCHER.NotifyWindow("Error", $"Not enough space on drive '{LUtils.SystemDriver()}'");
                     return;
                 }
                 UPDATER.LAUNCHER.FController.FTP.DownloadFile($"{LauncherOptions.TempPath}/client.zip", "/client.zip", FtpLocalExists.Append, FtpVerify.Retry, progress);
@@ -89,11 +89,11 @@ namespace PiReOnLauncher.Code.Updater
             {
                 if (e.CurrentEntry == null || e.CurrentEntry.IsDirectory || e.EntriesExtracted == 0)
                     return;
-                UPDATER.LAUNCHER.UpdateDownloadingStatus($"Распаковка файлов игры {e.EntriesExtracted}/{e.EntriesTotal}");
+                UPDATER.LAUNCHER.UpdateDownloadingStatus($"Unpacking game files {e.EntriesExtracted}/{e.EntriesTotal}");
                 UPDATER.ProgressBarChangeValue(e.EntriesExtracted);
                 if (e.EntriesExtracted == e.EntriesTotal)
                 {
-                    UPDATER.LAUNCHER.UpdateDownloadingStatus($"Распаковка завершена!");
+                    UPDATER.LAUNCHER.UpdateDownloadingStatus($"Unpacking filished!");
                     UPDATER.LAUNCHER.LUpdater.InstallCompleted();
                 }
             }
@@ -110,7 +110,7 @@ namespace PiReOnLauncher.Code.Updater
         //private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         Action<FtpProgress> progress = new Action<FtpProgress>(x =>
         {
-            UPDATER.LAUNCHER.UpdateDownloadingStatus($"Скачивание патча... ({x.TransferSpeedToString()})");
+            UPDATER.LAUNCHER.UpdateDownloadingStatus($"Downloading updates... ({x.TransferSpeedToString()})");
             UPDATER.ProgressBarChangeValue(x.Progress);
         });
         public UpdateClient(Updater upd) : base(upd) { }
@@ -141,13 +141,13 @@ namespace PiReOnLauncher.Code.Updater
                     UPDATER.ProgressBarChangeValue(0);
                     using (ZipFile file = ZipFile.Read(patch))
                     {
-                        UPDATER.LAUNCHER.UpdateDownloadingStatus($"Установка патча {Path.GetFileName(patch)}");
+                        UPDATER.LAUNCHER.UpdateDownloadingStatus($"Installing updates{Path.GetFileName(patch)}");
                         UPDATER.ProgressBarChangeMaximum(file.Count);
                         file.ExtractProgress += new EventHandler<ExtractProgressEventArgs>(ClientExtractProgress);
                         file.ExtractAll(LauncherOptions.GamePath, ExtractExistingFileAction.OverwriteSilently);
                     }
                 }
-                UPDATER.LAUNCHER.UpdateDownloadingStatus($"Распаковка завершена!");
+                UPDATER.LAUNCHER.UpdateDownloadingStatus($"Installing done!");
                 UPDATER.LAUNCHER.LUpdater.InstallCompleted();
             }
             catch { UPDATER.LAUNCHER.EnableButton(true); }
@@ -158,7 +158,7 @@ namespace PiReOnLauncher.Code.Updater
             {
                 if (e.CurrentEntry == null || e.CurrentEntry.IsDirectory || e.EntriesExtracted == 0)
                     return;
-                UPDATER.LAUNCHER.UpdateDownloadingStatus($"Распаковка файлов игры {e.EntriesExtracted}/{e.EntriesTotal}");
+                UPDATER.LAUNCHER.UpdateDownloadingStatus($"Unpacking game files {e.EntriesExtracted}/{e.EntriesTotal}");
                 UPDATER.ProgressBarChangeValue(e.EntriesExtracted);
             }
             catch { UPDATER.LAUNCHER.EnableButton(true); }

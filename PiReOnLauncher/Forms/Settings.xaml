@@ -1,4 +1,4 @@
-﻿<Window x:Class="PiReOnLauncher.Forms.Settings"
+<Window x:Class="PiReOnLauncher.Forms.Settings"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -70,7 +70,7 @@
         </TextBox>
         <Button x:Name="Save"
             FontFamily="{DynamicResource MonstReg}"
-            Content="Сохранить"
+            Content="Save"
             FontSize="13"
             Foreground="White" Style="{StaticResource PireonButton}"
             Pireon:PireonClass.FirstColor="#00ac69"

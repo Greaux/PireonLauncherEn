@@ -1,4 +1,4 @@
-﻿using AuthLib.JSON;
+using AuthLib.JSON;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace AuthLib
 {
     public class Authorization
     {
-        public const string AuthURL = "https://pireon.ru/API/CheckAccount.php?api_key=";
+        public const string AuthURL = "https://pireon.pro/en/API/CheckAccount.php?api_key=";
         public const string APIKey = "3ARYGFHYRBTHTYYHGGDG24";
         private readonly string Login;
         private readonly string Password;

@@ -1,4 +1,4 @@
-﻿using AuthLib;
+using AuthLib;
 //using NLog;
 using PiReOnLauncher.Code;
 using System;
@@ -47,12 +47,12 @@ namespace PiReOnLauncher.Forms
                 {
                     if (!LUtils.InternetConnection())
                     {
-                        ToNotify("Проверьте подключение к интернету!");
+                        ToNotify("Check internet connection!");
                         return;
                     }
-                    if (!LUtils.TestSite("http://pireon.ru"))
+                    if (!LUtils.TestSite("http://pireon.pro"))
                     {
-                        ToNotify("Сайт недоступен, вся актуальная информации в группе ВК.");
+                        ToNotify("Site is unavailable, all actual information in social webs");
                         return;
                     }
                     Auth = new Authorization(this.ReturnIt<string>(new Func<string>(() => LoginField.Text)), this.ReturnIt<string>(new Func<string>(() => PasswordField.Text)));
@@ -77,13 +77,13 @@ namespace PiReOnLauncher.Forms
                     {
                         if (ex is System.Net.Http.HttpRequestException)
                         {
-                            ToNotify("Отключите прокси.");
+                            ToNotify("Turn off Proxy.");
                             SwitchAll();
                         }
                         return ex is System.Net.Http.HttpRequestException;
                     });
                 }
-                catch {ToNotify("Неизвестная ошибка | (LOG)"); SwitchAll(); }
+                catch {ToNotify("Unknown error"); SwitchAll(); }
             }).Start();
         }
         private void ToNotify(string msg)
@@ -136,7 +136,7 @@ namespace PiReOnLauncher.Forms
         {
             try
             {
-                System.Diagnostics.Process.Start("http://pireon.ru/index.php?act=register");
+                System.Diagnostics.Process.Start("https://pireon.pro/index.php?act=register");
             }
             catch { }
         }

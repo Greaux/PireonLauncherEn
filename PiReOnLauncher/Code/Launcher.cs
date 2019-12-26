@@ -1,4 +1,4 @@
-﻿using FluentFTP;
+using FluentFTP;
 //using NLog;
 using PiReOnLauncher.Code.FTP;
 using PiReOnLauncher.Forms;
@@ -26,7 +26,7 @@ namespace PiReOnLauncher.Code
         public Launcher(AuthLib.AuthPacket PACKET)
         {
             this.PACKET = PACKET;
-            FController = new FTPController(this, "client", "p@ssw0rd131", "updateEN.pireon.pro");
+            FController = new FTPController(this, "clienten", "p@ssw0rd131", "updateEN.pireon.pro");
             LController = new LoadingController();
             LSettings = new SettingsController(this);
             LUpdater = new Updater.Updater(this);

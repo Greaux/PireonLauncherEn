@@ -1,4 +1,4 @@
-﻿//using NLog;
+//using NLog;
 using PiReOnLauncher.Code;
 using PiReOnLauncher.Code.Updater;
 using PiReOnLauncher.NewsBlock;
@@ -48,7 +48,7 @@ namespace PiReOnLauncher
         {
             try
             {
-                Process.Start("http://pireon.pro/");
+                Process.Start("https://pireon.pro");
             }
             catch/*(Exception ex)*/ { /*Log.Error(ex);*/ }
         }
@@ -61,11 +61,11 @@ namespace PiReOnLauncher
             }
             catch/*(Exception ex)*/ { /*Log.Error(ex);*/ }
         }
-        private void VisitSite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void VisitFB_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                Process.Start("http://pireon.ru/");
+                Process.Start("https://www.facebook.com/PiratiaRevivedOnline/");
             }
             catch/*(Exception ex)*/ { /*Log.Error(ex);*/ }
         }

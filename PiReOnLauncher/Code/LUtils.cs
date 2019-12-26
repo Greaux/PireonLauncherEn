@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,7 +53,7 @@ namespace PiReOnLauncher.Code
             try
             {
                 Ping p = new Ping();
-                PingReply pr = p.Send(@"pireon.ru");
+                PingReply pr = p.Send(@"pireon.pro");
                 return pr.Status == IPStatus.Success;
             }
             catch { return false; }
@@ -78,7 +78,7 @@ namespace PiReOnLauncher.Code
             try
             {
                 Ping p = new Ping();
-                PingReply pr = p.Send(@"pireon.ru");
+                PingReply pr = p.Send(@"pireon.pro");
                 return pr.Status == IPStatus.Success;
             }
             catch { return false; }

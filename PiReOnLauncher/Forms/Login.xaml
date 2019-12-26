@@ -1,4 +1,4 @@
-﻿<Window x:Class="PiReOnLauncher.Forms.Login"
+<Window x:Class="PiReOnLauncher.Forms.Login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -15,10 +15,10 @@
             </Border.Background>
         </Border>
         <Image Style="{StaticResource Cross}" MouseDown="Image_MouseDown"/>
-        <TextBox Pireon:PireonClass.Placeholder="Логин" Style="{StaticResource PireonTextBox}" x:Name="LoginField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 190"/>
-        <TextBox Pireon:PireonClass.Placeholder="Пароль" Style="{StaticResource PireonTextBox}" x:Name="PasswordField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 90"/>
+        <TextBox Pireon:PireonClass.Placeholder="Login" Style="{StaticResource PireonTextBox}" x:Name="LoginField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 190"/>
+        <TextBox Pireon:PireonClass.Placeholder="Password" Style="{StaticResource PireonTextBox}" x:Name="PasswordField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 90"/>
         <Button x:Name="LogInBtn"
-            Content="Войти"
+            Content="Enter"
             FontSize="13"
             Foreground="White" Style="{StaticResource PireonButton}"
             Pireon:PireonClass.FirstColor="#f0c15d"
@@ -30,8 +30,8 @@
                 HorizontalAlignment="Center"
                 Margin="0"
                 Click="LogInBtn_Click"/>
-        <TextBlock x:Name="SignIn" Style="{StaticResource PireonTextAnimatedHover}" Text="Регистрация" MouseLeftButtonDown="SignIn_MouseLeftButtonDown" Foreground="#FFFFFF" Opacity=".3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 60 0 0"/>
-        <TextBlock x:Name="Loading" Style="{StaticResource PireonTextBlicking}" Text="Авторизация, пожалуйста подождите" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="16" Margin="0 0 0 65" Visibility="Hidden"/>
+        <TextBlock x:Name="SignIn" Style="{StaticResource PireonTextAnimatedHover}" Text="Registration" MouseLeftButtonDown="SignIn_MouseLeftButtonDown" Foreground="#FFFFFF" Opacity=".3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 60 0 0"/>
+        <TextBlock x:Name="Loading" Style="{StaticResource PireonTextBlicking}" Text="Checking, please wait" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="16" Margin="0 0 0 65" Visibility="Hidden"/>
         <TextBlock x:Name="NotifyTB" Style="{StaticResource PireonText}" Text="" FontSize="16" VerticalAlignment="Bottom" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0 0 0 65" Foreground="#BD4444"/>
     </Grid>
 </Window>
