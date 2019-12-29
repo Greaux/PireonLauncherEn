@@ -53,7 +53,7 @@ namespace PiReOnLauncher.Code
             try
             {
                 Ping p = new Ping();
-                PingReply pr = p.Send(@"pireon.pro");
+                PingReply pr = p.Send(@"reg.ru");
                 return pr.Status == IPStatus.Success;
             }
             catch { return false; }
