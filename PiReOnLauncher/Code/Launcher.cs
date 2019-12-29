@@ -26,7 +26,7 @@ namespace PiReOnLauncher.Code
         public Launcher(AuthLib.AuthPacket PACKET)
         {
             this.PACKET = PACKET;
-            FController = new FTPController(this, "clienten", "p@ssw0rd131", "updateEN.pireon.pro");
+            FController = new FTPController(this, "clienten", "p@ssw0rd131", "updateen.pireon.pro");
             LController = new LoadingController();
             LSettings = new SettingsController(this);
             LUpdater = new Updater.Updater(this);
@@ -77,7 +77,7 @@ namespace PiReOnLauncher.Code
                     LController.ChangeStatus("Unavailable to connect with Pireon.pro!");
                     return;
                 }
-                if (!LUtils.TestSite("http://pireon.pro"))
+                if (!LUtils.TestSite("https://pireon.pro/en/"))
                 {
                     LController.ChangeStatus("Oh... Problems with web-site, check socials for info");
                     return;
