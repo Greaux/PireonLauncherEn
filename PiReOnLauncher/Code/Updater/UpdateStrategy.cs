@@ -175,12 +175,13 @@ namespace PiReOnLauncher.Code.Updater
         {
             //startgame {UPDATER.LAUNCHER.PACKET.IP} {UPDATER.LAUNCHER.PACKET.PORT} {UPDATER.LAUNCHER.PACKET.LOGIN} {UPDATER.LAUNCHER.PACKET.PASSWORD}
             string ip = UPDATER.LAUNCHER.PACKET.IP;
-            string port = UPDATER.LAUNCHER.PACKET.PORT;
-            string login = UPDATER.LAUNCHER.PACKET.LOGIN;
-            string password = UPDATER.LAUNCHER.PACKET.PASSWORD;
+            // string port = UPDATER.LAUNCHER.PACKET.PORT;
+            // string login = UPDATER.LAUNCHER.PACKET.LOGIN;
+            // string password = UPDATER.LAUNCHER.PACKET.PASSWORD;
             System.Diagnostics.Process proc = new Process();
             proc.StartInfo.FileName = $"{LauncherOptions.GamePath}/system/Game.exe";
-            proc.StartInfo.Arguments = $"startgame {ip} {port} {login} {password}";
+            // proc.StartInfo.Arguments = $"startgame {ip} {port} {login} {password}"; old one
+            proc.StartInfo.Arguments = $"startgame ip:{ip}";
             proc.StartInfo.WorkingDirectory = $"{LauncherOptions.GamePath}";
             proc.Start();
             proc.WaitForExit();
