@@ -145,7 +145,7 @@ namespace PiReOnLauncher.Code.Updater
         public void CheckLauncher()
         {
             byte[] launcher;
-            LAUNCHER.FController.FTP.Download(out launcher, "/launcher/PiReOn.exe");
+            LAUNCHER.FController.FTP.Download(out launcher, "/launcher/PireOnEn.exe");
             if (launcher is null)
                 return;
             //todo launcher update
