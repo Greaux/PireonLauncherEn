@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PiReOnLauncher"
+        xmlns:p="clr-namespace:PiReOnLauncher.Properties"
         xmlns:news="clr-namespace:PiReOnLauncher.NewsBlock"
         mc:Ignorable="d"
         Title="PiReOn Launcher"
@@ -34,7 +35,7 @@
                 </Border>
                 <Image x:Name="VisitSite" Source="Content/www.png" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20" MouseLeftButtonDown="VisitSite_MouseLeftButtonDown"/>
                 <Image x:Name="VisitVK" Source="Content/vk.png" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 50 00 20" MouseLeftButtonDown="VisitVK_MouseLeftButtonDown"/>
-                <Image x:Name="VisitFB" Source="Content/fb.png" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 00 20" MouseLeftButtonDown="VisitFB_MouseLeftButtonDown"/>
+                <Image x:Name="VisitFB" Source="Content/fb.png" Width="15" Height="15" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 80 00 20" MouseLeftButtonDown="VisitFB_MouseLeftButtonDown"/>
                 <TextBlock Foreground="#FFFFFF" FontFamily="{DynamicResource MonstReg}" FontSize="16" HorizontalAlignment="Right" Margin="0, 15,280,0">
                     <Run Text="PiReOn" Foreground="{StaticResource PireonForeground}"/>
                     <Run Text="Launcher" Foreground="#FFFFFF"/>
@@ -47,7 +48,7 @@
                     </ScrollViewer>
                 </StackPanel>
                 <Button x:Name="DownloadBtn"
-                        Content="Скачать игру"
+                        Content="{DynamicResource DownloadBtn}"
                         Style="{StaticResource PireonButton}"
                         local:PireonClass.FirstColor="#751c32"
                         local:PireonClass.SecondColor="#bf012b"

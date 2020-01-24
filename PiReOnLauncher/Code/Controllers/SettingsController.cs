@@ -12,7 +12,7 @@ namespace PiReOnLauncher.Code
     public class SettingsController : IController
     {
         public SettingsController(Launcher L) : base(L) { }
-        public static string SETTINGSPLACE = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/PireonEn/cfg.launch";
+        public static string SETTINGSPLACE = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}/{_GLOBAL.GAMEPATH}/cfg.launch";
         /// <summary>
         /// Загрузка настроек лаунчера
         /// </summary>

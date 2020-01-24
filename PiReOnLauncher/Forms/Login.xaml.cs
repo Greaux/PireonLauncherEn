@@ -3,6 +3,7 @@ using AuthLib;
 using PiReOnLauncher.Code;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,14 @@ namespace PiReOnLauncher.Forms
         public Login()
         {
             InitializeComponent();
+            App.LanguageChanged += LanguageChanged;
+
+            CultureInfo currLang = App.Language;
+        }
+
+        private void LanguageChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -39,8 +48,19 @@ namespace PiReOnLauncher.Forms
 
         private void LogInBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(App.Language != App.Languages[0])
+            {
+                //Сюда вписать свои значения.
+                //*EDIT IT*
+                _GLOBAL.FTP_LOGIN = "RULOGIN";
+                _GLOBAL.FTP_PASSWORD = "RUPASSWORD";
+                _GLOBAL.GAMEPATH = "RUGAMEPATH FOLDER";
+                _GLOBAL.URL_REGION = "http://pireon.pro/ru/";
+                _GLOBAL.FTPPIREONURL = "updateru.pireon.pro";
+            }
             SwitchAll();
             NotifyTB.Text = "";
+
             new Thread(() =>
             {
                 try
@@ -139,6 +159,16 @@ namespace PiReOnLauncher.Forms
                 System.Diagnostics.Process.Start("https://pireon.pro/index.php?act=register");
             }
             catch { }
+        }
+
+        private void ENGLang_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Language = App.Languages[0];
+        }
+
+        private void RUSLang_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Language = App.Languages[1];
         }
     }
 }

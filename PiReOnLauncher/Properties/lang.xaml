@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PiReOnLauncher.Properties"
+                    xmlns:v="clr-namespace:System;assembly=mscorlib">
+    <v:String x:Key="DownloadBtn">Download Game</v:String>
+    <v:String x:Key="LogInBtn">Enter</v:String>
+</ResourceDictionary>

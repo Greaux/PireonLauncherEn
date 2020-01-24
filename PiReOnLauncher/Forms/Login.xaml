@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Pireon="clr-namespace:PiReOnLauncher"
+        xmlns:p="clr-namespace:PiReOnLauncher.Properties"
         xmlns:local="clr-namespace:PiReOnLauncher.Forms"
         mc:Ignorable="d"
         Title="Login" Height="340" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded" Width="389" Style="{StaticResource PireonWindow}">
@@ -14,11 +15,13 @@
                 <ImageBrush ImageSource="../Content/BGLogin.png"/>
             </Border.Background>
         </Border>
+        <Image x:Name="RUSLang" Source="../Content/russia.png" Width="32" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="7" MouseLeftButtonDown="RUSLang_MouseLeftButtonDown"/>
+        <Image x:Name="ENGLang" Source="../Content/usa.png" Width="32" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,7" MouseLeftButtonDown="ENGLang_MouseLeftButtonDown"/>
         <Image Style="{StaticResource Cross}" MouseDown="Image_MouseDown"/>
         <TextBox Pireon:PireonClass.Placeholder="Login" Style="{StaticResource PireonTextBox}" x:Name="LoginField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 190"/>
         <TextBox Pireon:PireonClass.Placeholder="Password" Style="{StaticResource PireonTextBox}" x:Name="PasswordField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 90"/>
         <Button x:Name="LogInBtn"
-            Content="Enter"
+            Content="{DynamicResource LogInBtn}"
             FontSize="13"
             Foreground="White" Style="{StaticResource PireonButton}"
             Pireon:PireonClass.FirstColor="#f0c15d"

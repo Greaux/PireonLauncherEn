@@ -32,12 +32,12 @@ namespace PiReOnLauncher.NewsBlock
         }
         public void AddNews()
         {
-            JObject obj = UJson.GetJSONByURL($"http://pireon.pro/en/index.php?act=newsapi&key=123321&n=4");
+            JObject obj = UJson.GetJSONByURL($"{_GLOBAL.URL_REGION}/index.php?act=newsapi&key=123321&n=4");
             Add(ParseJson(obj));
         }
         public JObject GetObj(int i)
         {
-            return UJson.GetJSONByURL($"http://pireon.pro/en/index.php?act=newsapi&key=123321&n={i}");
+            return UJson.GetJSONByURL($"{_GLOBAL.URL_REGION}/index.php?act=newsapi&key=123321&n={i}");
         }
         public List<NewsRect> ParseJson(JObject obj)
         {

@@ -141,6 +141,7 @@
     <Compile Include="Code\Updater\GameVersion.cs" />
     <Compile Include="Code\Updater\Updater.cs" />
     <Compile Include="Code\Updater\UpdateStrategy.cs" />
+    <Compile Include="Code\_GLOBAL.cs" />
     <Compile Include="Forms\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -155,6 +156,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PireonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Properties\lang.en-US.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\lang.ru-RU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Properties\lang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,7 +191,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="Content\MontserratLight.ttf" />
@@ -230,6 +243,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Content\FB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\russia.png" />
+    <Resource Include="Content\usa.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
