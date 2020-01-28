@@ -15,24 +15,17 @@
                 <ImageBrush ImageSource="../Content/BGLogin.png"/>
             </Border.Background>
         </Border>
-        <Image x:Name="RUSLang" Source="../Content/russia.png" Width="32" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="7" MouseLeftButtonDown="RUSLang_MouseLeftButtonDown"/>
-        <Image x:Name="ENGLang" Source="../Content/usa.png" Width="32" Height="32" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,7" MouseLeftButtonDown="ENGLang_MouseLeftButtonDown"/>
         <Image Style="{StaticResource Cross}" MouseDown="Image_MouseDown"/>
         <TextBox Pireon:PireonClass.Placeholder="Login" Style="{StaticResource PireonTextBox}" x:Name="LoginField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 190"/>
         <TextBox Pireon:PireonClass.Placeholder="Password" Style="{StaticResource PireonTextBox}" x:Name="PasswordField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 90"/>
-        <Button x:Name="LogInBtn"
-            Content="{DynamicResource LogInBtn}"
-            FontSize="13"
-            Foreground="White" Style="{StaticResource PireonButton}"
-            Pireon:PireonClass.FirstColor="#f0c15d"
-            Pireon:PireonClass.SecondColor="#ff8508"
-            Pireon:PireonClass.FirstColorBrush="#FCD27A"
-            Pireon:PireonClass.SecondColorBrush="#FFA64A"
-            BorderBrush="#ff9626" Height="30"
-            Width="228" VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Margin="0"
-                Click="LogInBtn_Click"/>
+        <Grid Width="130" Height="40" Margin="105 0 0 0">
+            <Image x:Name="ENLOGIN" Source="../Content/buttonright.png" MouseLeftButtonDown="ENLOGIN_MouseLeftButtonDown"/>
+            <TextBlock Text="Login(EN)" Foreground="White" FontFamily="{DynamicResource MonstReg}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 0 0 0"/>
+        </Grid>
+        <Grid Width="130" Height="40" Margin="0 0 105 0">
+            <Image x:Name="RULOGIN" Source="../Content/buttonleft.png" MouseLeftButtonDown="RULOGIN_MouseLeftButtonDown"/>
+            <TextBlock x:Name="LOGINRUTB" Text="Login(RU)" Foreground="White" FontFamily="{DynamicResource MonstReg}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 20 0"/>
+        </Grid>
         <TextBlock x:Name="SignIn" Style="{StaticResource PireonTextAnimatedHover}" Text="Registration" MouseLeftButtonDown="SignIn_MouseLeftButtonDown" Foreground="#FFFFFF" Opacity=".3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 60 0 0"/>
         <TextBlock x:Name="Loading" Style="{StaticResource PireonTextBlicking}" Text="Checking, please wait" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="16" Margin="0 0 0 65" Visibility="Hidden"/>
         <TextBlock x:Name="NotifyTB" Style="{StaticResource PireonText}" Text="" FontSize="16" VerticalAlignment="Bottom" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0 0 0 65" Foreground="#BD4444"/>

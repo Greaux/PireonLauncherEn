@@ -248,5 +248,9 @@
     <Resource Include="Content\russia.png" />
     <Resource Include="Content\usa.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\buttonleft.png" />
+    <Resource Include="Content\buttonright.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

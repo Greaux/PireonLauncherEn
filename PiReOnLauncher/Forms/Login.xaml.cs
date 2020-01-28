@@ -45,10 +45,9 @@ namespace PiReOnLauncher.Forms
         {
             DragMove();
         }
-
-        private void LogInBtn_Click(object sender, RoutedEventArgs e)
+        private void LoginAction()
         {
-            if(App.Language != App.Languages[0])
+            if (App.Language != App.Languages[0])
             {
                 //Сюда вписать свои значения.
                 //*EDIT IT*
@@ -92,7 +91,8 @@ namespace PiReOnLauncher.Forms
                         SwitchAll();
                     }
                 }
-                catch (AggregateException ae) {
+                catch (AggregateException ae)
+                {
                     ae.Handle(ex =>
                     {
                         if (ex is System.Net.Http.HttpRequestException)
@@ -103,7 +103,7 @@ namespace PiReOnLauncher.Forms
                         return ex is System.Net.Http.HttpRequestException;
                     });
                 }
-                catch {ToNotify("Unknown error"); SwitchAll(); }
+                catch { ToNotify("Unknown error"); SwitchAll(); }
             }).Start();
         }
         private void ToNotify(string msg)
@@ -137,7 +137,8 @@ namespace PiReOnLauncher.Forms
            this.InvokeIt(() => {
                LoginField.IsEnabled = !LoginField.IsEnabled;
                PasswordField.IsEnabled = !PasswordField.IsEnabled;
-               LogInBtn.IsEnabled = !LogInBtn.IsEnabled;
+               ENLOGIN.IsEnabled = !ENLOGIN.IsEnabled;
+               RULOGIN.IsEnabled = !RULOGIN.IsEnabled;
                Loading.Visibility = (Loading.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible);
            });
         }
@@ -169,6 +170,23 @@ namespace PiReOnLauncher.Forms
         private void RUSLang_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             App.Language = App.Languages[1];
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void RULOGIN_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Language = App.Languages[1];
+            LoginAction();
+        }
+
+        private void ENLOGIN_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            App.Language = App.Languages[0];
+            LoginAction();
         }
     }
 }
