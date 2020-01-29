@@ -20,11 +20,11 @@
         <TextBox Pireon:PireonClass.Placeholder="Password" Style="{StaticResource PireonTextBox}" x:Name="PasswordField" Height="29" Width="287" HorizontalAlignment="Center" Margin="0 0 0 90"/>
         <Grid Width="130" Height="40" Margin="105 0 0 0">
             <Image x:Name="ENLOGIN" Source="../Content/buttonright.png" MouseLeftButtonDown="ENLOGIN_MouseLeftButtonDown"/>
-            <TextBlock Text="Login(EN)" Foreground="White" FontFamily="{DynamicResource MonstReg}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 0 0 0"/>
+            <TextBlock Text="Login(EN)" Foreground="White" FontFamily="{DynamicResource MonstReg}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20 0 0 0" IsHitTestVisible="False"/>
         </Grid>
         <Grid Width="130" Height="40" Margin="0 0 105 0">
             <Image x:Name="RULOGIN" Source="../Content/buttonleft.png" MouseLeftButtonDown="RULOGIN_MouseLeftButtonDown"/>
-            <TextBlock x:Name="LOGINRUTB" Text="Login(RU)" Foreground="White" FontFamily="{DynamicResource MonstReg}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 20 0"/>
+            <TextBlock x:Name="LOGINRUTB" Text="Login(RU)" Foreground="White" FontFamily="{DynamicResource MonstReg}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 20 0" IsHitTestVisible="False"/>
         </Grid>
         <TextBlock x:Name="SignIn" Style="{StaticResource PireonTextAnimatedHover}" Text="Registration" MouseLeftButtonDown="SignIn_MouseLeftButtonDown" Foreground="#FFFFFF" Opacity=".3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 60 0 0"/>
         <TextBlock x:Name="Loading" Style="{StaticResource PireonTextBlicking}" Text="Checking, please wait" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="16" Margin="0 0 0 65" Visibility="Hidden"/>
