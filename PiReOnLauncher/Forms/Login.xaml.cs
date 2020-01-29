@@ -58,6 +58,7 @@ namespace PiReOnLauncher.Forms
                 _GLOBAL.FTPPIREONURL = "updateru.pireon.pro";
             }
             SwitchAll();
+            Checking(true);
             NotifyTB.Text = "";
 
             new Thread(() =>
@@ -67,11 +68,15 @@ namespace PiReOnLauncher.Forms
                     if (!LUtils.InternetConnection())
                     {
                         ToNotify("Check internet connection!");
+                        SwitchAll();
+                        Checking(false);
                         return;
                     }
                     if (!LUtils.TestSite("http://pireon.pro"))
                     {
                         ToNotify("Site is unavailable, all actual information in social webs");
+                        SwitchAll();
+                        Checking(false);
                         return;
                     }
                     Auth = new Authorization(this.ReturnIt<string>(new Func<string>(() => LoginField.Text)), this.ReturnIt<string>(new Func<string>(() => PasswordField.Text)));
@@ -89,6 +94,7 @@ namespace PiReOnLauncher.Forms
                     {
                         ToNotify(pack.Error);
                         SwitchAll();
+                        Checking(false);
                     }
                 }
                 catch (AggregateException ae)
@@ -99,11 +105,12 @@ namespace PiReOnLauncher.Forms
                         {
                             ToNotify("Turn off Proxy.");
                             SwitchAll();
+                            Checking(false);
                         }
                         return ex is System.Net.Http.HttpRequestException;
                     });
                 }
-                catch { ToNotify("Unknown error"); SwitchAll(); }
+                catch { ToNotify("Unknown error"); Checking(false); SwitchAll(); }
             }).Start();
         }
         private void ToNotify(string msg)
@@ -139,8 +146,11 @@ namespace PiReOnLauncher.Forms
                PasswordField.IsEnabled = !PasswordField.IsEnabled;
                ENLOGIN.IsEnabled = !ENLOGIN.IsEnabled;
                RULOGIN.IsEnabled = !RULOGIN.IsEnabled;
-               Loading.Visibility = (Loading.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible);
            });
+        }
+        private void Checking(bool turn)
+        {
+            this.InvokeIt(() => Loading.Visibility = (turn ? Visibility.Visible : Visibility.Hidden));
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
@@ -160,21 +170,6 @@ namespace PiReOnLauncher.Forms
                 System.Diagnostics.Process.Start("https://pireon.pro/index.php?act=register");
             }
             catch { }
-        }
-
-        private void ENGLang_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            App.Language = App.Languages[0];
-        }
-
-        private void RUSLang_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            App.Language = App.Languages[1];
-        }
-
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
 
         private void RULOGIN_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
