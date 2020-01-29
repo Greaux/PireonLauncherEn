@@ -51,9 +51,9 @@ namespace PiReOnLauncher.Forms
             {
                 //Сюда вписать свои значения.
                 //*EDIT IT*
-                _GLOBAL.FTP_LOGIN = "RULOGIN";
-                _GLOBAL.FTP_PASSWORD = "RUPASSWORD";
-                _GLOBAL.GAMEPATH = "RUGAMEPATH FOLDER";
+                _GLOBAL.FTP_LOGIN = "client";
+                _GLOBAL.FTP_PASSWORD = "p@ssw0rd131";
+                _GLOBAL.GAMEPATH = "PireonRu";
                 _GLOBAL.URL_REGION = "http://pireon.pro/ru/";
                 _GLOBAL.FTPPIREONURL = "updateru.pireon.pro";
             }
@@ -72,14 +72,14 @@ namespace PiReOnLauncher.Forms
                         Checking(false);
                         return;
                     }
-                    if (!LUtils.TestSite("http://pireon.pro"))
+                    if (!LUtils.TestSite(_GLOBAL.URL_REGION))
                     {
                         ToNotify("Site is unavailable, all actual information in social webs");
                         SwitchAll();
                         Checking(false);
                         return;
                     }
-                    Auth = new Authorization(this.ReturnIt<string>(new Func<string>(() => LoginField.Text)), this.ReturnIt<string>(new Func<string>(() => PasswordField.Text)));
+                    Auth = new Authorization(this.ReturnIt<string>(new Func<string>(() => LoginField.Text)), this.ReturnIt<string>(new Func<string>(() => PasswordField.Text)), _GLOBAL.URL_REGION);
                     AuthPacket pack = Auth.GetPacket();
                     if (pack.Status == AuthStatus.Success)
                     {
@@ -96,22 +96,26 @@ namespace PiReOnLauncher.Forms
                         SwitchAll();
                         Checking(false);
                     }
-                }
+            }
                 catch (AggregateException ae)
+            {
+                ae.Handle(ex =>
                 {
-                    ae.Handle(ex =>
+                    foreach (var x in ae.InnerExceptions)
                     {
-                        if (ex is System.Net.Http.HttpRequestException)
-                        {
-                            ToNotify("Turn off Proxy.");
-                            SwitchAll();
-                            Checking(false);
-                        }
-                        return ex is System.Net.Http.HttpRequestException;
-                    });
-                }
-                catch { ToNotify("Unknown error"); Checking(false); SwitchAll(); }
-            }).Start();
+                        Console.WriteLine(x.Message + "\n" + x.ToString());
+                    }
+                    if (ex is System.Net.Http.HttpRequestException)
+                    {
+                        ToNotify("Turn off Proxy.");
+                        SwitchAll();
+                        Checking(false);
+                    }
+                    return ex is System.Net.Http.HttpRequestException;
+                });
+            }
+            catch { ToNotify("Unknown error"); Checking(false); SwitchAll(); }
+        }).Start();
         }
         private void ToNotify(string msg)
         {

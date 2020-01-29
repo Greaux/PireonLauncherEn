@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,18 +11,26 @@ namespace AuthLib
 {
     public class Authorization
     {
-        public const string AuthURL = "https://pireon.pro/en/API/CheckAccount.php?api_key=";
+        public static string url = "http://pireon.pro/en";
+        public string AuthURL = $"{url}/API/CheckAccount.php?api_key=";
         public const string APIKey = "3ARYGFHYRBTHTYYHGGDG24";
         private readonly string Login;
         private readonly string Password;
-        public Authorization(string login, string pass)
+        public Authorization(string login, string pass, string url)
         {
+            Authorization.url = url;
             Login = login;
             Password = pass;
         }
         public AuthPacket GetPacket()
         {
-            JObject auth = UJson.GetJSONByURL($"{AuthURL}{APIKey}&user={Login}&password={Password}");
+
+            JObject auth;
+            try
+            {
+                auth = UJson.GetJSONByURL($"{AuthURL}{APIKey}&user={Login}&password={Password}");
+            }
+            catch { return new AuthPacket("", "", "error", "", "", "Incorrect login data"); }
             AuthPacket packet;
             if (auth.GetToken("status").ToString() == "error")
                 packet = new AuthPacket("", "", "error", "", "", auth.GetToken("error").ToString());
