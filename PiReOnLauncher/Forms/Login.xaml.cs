@@ -96,24 +96,11 @@ namespace PiReOnLauncher.Forms
                         SwitchAll();
                         Checking(false);
                     }
-            }
+                }
                 catch (AggregateException ae)
-            {
-                ae.Handle(ex =>
                 {
-                    foreach (var x in ae.InnerExceptions)
-                    {
-                        Console.WriteLine(x.Message + "\n" + x.ToString());
-                    }
-                    if (ex is System.Net.Http.HttpRequestException)
-                    {
-                        ToNotify("Turn off Proxy.");
-                        SwitchAll();
-                        Checking(false);
-                    }
-                    return ex is System.Net.Http.HttpRequestException;
-                });
-            }
+                    ToNotify("Authorization error!"); Checking(false); SwitchAll();
+                }
             catch { ToNotify("Unknown error"); Checking(false); SwitchAll(); }
         }).Start();
         }
