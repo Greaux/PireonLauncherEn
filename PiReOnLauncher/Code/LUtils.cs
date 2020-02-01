@@ -60,18 +60,19 @@ namespace PiReOnLauncher.Code
         }
         public static bool TestSite(string url)
         {
-
-            Uri uri = new Uri(url);
+            Ping ping = new Ping();
             try
             {
-                HttpWebRequest httpWebRequest = (HttpWebRequest)HttpWebRequest.Create(uri);
-                HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                PingReply reply = ping.Send(url, 2000);
+
+                if (reply.Status == IPStatus.Success) 
+                    return true;
+                return false;
             }
             catch
             {
                 return false;
             }
-            return true;
         }
         public static bool InternetConnectionToPireon()
         {

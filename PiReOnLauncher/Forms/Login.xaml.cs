@@ -47,7 +47,8 @@ namespace PiReOnLauncher.Forms
         }
         private void LoginAction()
         {
-            if (App.Language != App.Languages[0])
+            NotifyTB.Text = "";
+            if (App.Language == App.Languages[1])
             {
                 //Сюда вписать свои значения.
                 //*EDIT IT*
@@ -59,22 +60,13 @@ namespace PiReOnLauncher.Forms
             }
             SwitchAll();
             Checking(true);
-            NotifyTB.Text = "";
-
-            new Thread(() =>
+            Task.Factory.StartNew(() =>
             {
                 try
                 {
                     if (!LUtils.InternetConnection())
                     {
                         ToNotify("Check internet connection!");
-                        SwitchAll();
-                        Checking(false);
-                        return;
-                    }
-                    if (!LUtils.TestSite(_GLOBAL.URL_REGION))
-                    {
-                        ToNotify("Site is unavailable, all actual information in social webs");
                         SwitchAll();
                         Checking(false);
                         return;
@@ -99,14 +91,16 @@ namespace PiReOnLauncher.Forms
                 }
                 catch (AggregateException ae)
                 {
-                    ToNotify("Authorization error!"); Checking(false); SwitchAll();
+                    ToNotify("Authorization error!");
+                    Checking(false);
+                    SwitchAll();
                 }
-            catch { ToNotify("Unknown error"); Checking(false); SwitchAll(); }
-        }).Start();
+                catch { ToNotify("Unknown error"); Checking(false); SwitchAll(); }
+            });
         }
         private void ToNotify(string msg)
         {
-            this.InvokeIt(() => { Loading.Visibility = Visibility.Hidden; NotifyTB.Text = msg; });
+            this.InvokeIt(() => { NotifyTB.Text = msg; });
         }
         private void SaveLogin()
         {

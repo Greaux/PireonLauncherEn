@@ -77,11 +77,11 @@ namespace PiReOnLauncher.Code
                     LController.ChangeStatus("Unavailable to connect with Pireon.pro!");
                     return;
                 }
-                if (!LUtils.TestSite($"{_GLOBAL.URL_REGION}"))
-                {
-                    LController.ChangeStatus("Oh... Problems with web-site, check socials for info");
-                    return;
-                }
+                //if (!LUtils.TestSite(_GLOBAL.URL_REGION))
+                //{
+                //    LController.ChangeStatus("Oh... Problems with web-site, check socials for info");
+                //    return;
+                //}
 
                 LUtils.OverrideDirectory($"{LauncherOptions.TempPath}");
                 LUtils.OverrideDirectory(Path.GetDirectoryName(SettingsController.SETTINGSPLACE));
