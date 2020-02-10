@@ -1,0 +1,1 @@
+libz inject-dll --assembly PiReOnLauncher.exe --include *.dll --move
