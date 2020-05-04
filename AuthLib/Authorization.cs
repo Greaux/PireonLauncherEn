@@ -11,7 +11,7 @@ namespace AuthLib
 {
     public class Authorization
     {
-        public static string url = "http://pireon.pro/en";
+        public static string url = "https://pireon.pro/en";
         public string AuthURL = $"{url}/API/CheckAccount.php?api_key=";
         public const string APIKey = "3ARYGFHYRBTHTYYHGGDG24";
         private readonly string Login;
